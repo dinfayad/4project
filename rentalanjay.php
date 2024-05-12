@@ -150,7 +150,7 @@
                         $this->Total = $Total;
                         $this->Pajak = 10000; // Pajak Rp 10.000
                         $this->Diskon = 5 / 100;
-                        $this->members = array("ana", "udin", "jamal", "fajar"); // Nama member
+                        $this->members = array("asep", "sepa", "aceng", "keling"); // Nama member
                     }
 
                     public function getNamaPelanggan()
@@ -205,6 +205,14 @@
                     public function struk()
                     {
                         echo "<h1>Bukti Transaksi</h1>";
+                        $total = $this->HitungJumlah();
+                        echo "<p>" . $this->NamaPelanggan . " berstatus sebagai ";
+                        if (in_array(strtolower($this->NamaPelanggan), $this->getMembers())) {
+                            echo "member dan mendapat potongan harga 5%.</p>";
+                        } else {
+                            echo "non-member.</p>";
+                        }
+
                         $total = $this->HitungJumlah();
                         echo "<p>" . $this->NamaPelanggan . " berhasil merental ";
                         echo "<br>";
